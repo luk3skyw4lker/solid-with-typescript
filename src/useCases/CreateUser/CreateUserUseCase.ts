@@ -38,5 +38,7 @@ export class CreateUserUseCase {
       subject: "Welcome to our platform!",
       body: "<p>You can already log in.</p>"
     });
+
+    return user;
   }
 }

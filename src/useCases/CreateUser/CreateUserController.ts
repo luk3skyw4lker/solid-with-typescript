@@ -8,9 +8,13 @@ export class CreateUserController {
     const { name, email, password } = req.body;
 
     try {
-      await this.createUserUseCase.execute({ name, email, password });
+      const user = await this.createUserUseCase.execute({
+        name,
+        email,
+        password
+      });
 
-      return res.status(201).send();
+      return res.status(201).send(user);
     } catch (err) {
       return res.status(500).json({ err: err.message || "Unexpected error" });
     }
